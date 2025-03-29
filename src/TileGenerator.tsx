@@ -630,38 +630,40 @@ const NumberGenerator: React.FC = () => {
         className="hidden"
       />
       
-      <div className={`grid gap-4`} style={{ gridTemplateColumns: `repeat(${numColumns}, 1fr)` }}>
-        {allImages.map((img, index) => {
-          const row = Math.floor(index / numColumns) + 1;
-          const col = (index % numColumns) + 1;
-          return (
-            <div key={img.number} className="border border-gray-300 p-2 rounded bg-white">
-              <div className="font-bold text-center mb-2">Number {img.number}</div>
-              <img 
-                src={img.dataUrl} 
-                alt={`Number ${img.number}`} 
-                width={imageWidth} 
-                height={imageHeight}
-                className="w-full h-auto"
-              />
-              <div className="mt-2 text-center space-y-1">
-                <div className="text-xs text-gray-600">
-                  Row: {row}, Col: {col}
+      <div className="flex justify-center">
+        <div className={`grid gap-4 max-w-[90vw]`} style={{ gridTemplateColumns: `repeat(${numColumns}, 1fr)` }}>
+          {allImages.map((img, index) => {
+            const row = Math.floor(index / numColumns) + 1;
+            const col = (index % numColumns) + 1;
+            return (
+              <div key={img.number} className="border border-gray-300 p-2 rounded bg-white">
+                <div className="font-bold text-center mb-2">Number {img.number}</div>
+                <img 
+                  src={img.dataUrl} 
+                  alt={`Number ${img.number}`} 
+                  width={imageWidth} 
+                  height={imageHeight}
+                  className="w-full h-auto"
+                />
+                <div className="mt-2 text-center space-y-1">
+                  <div className="text-xs text-gray-600">
+                    Row: {row}, Col: {col}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    Size: {imageWidth} × {imageHeight}px
+                  </div>
+                  <a 
+                    href={img.dataUrl} 
+                    download={`number-${img.number}-${imageWidth}x${imageHeight}px.png`}
+                    className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm inline-block"
+                  >
+                    Download
+                  </a>
                 </div>
-                <div className="text-xs text-gray-600">
-                  Size: {imageWidth} × {imageHeight}px
-                </div>
-                <a 
-                  href={img.dataUrl} 
-                  download={`number-${img.number}-${imageWidth}x${imageHeight}px.png`}
-                  className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm inline-block"
-                >
-                  Download
-                </a>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* Stitched Preview Section */}
