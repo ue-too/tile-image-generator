@@ -151,17 +151,17 @@ const NumberGenerator: React.FC = () => {
   };
   
   // Generate all images
-  const generateAllImages = (): ImageData[] => {
-    const images: ImageData[] = [];
-    const totalImages = numRows * numColumns;
-    for (let i = 1; i <= totalImages; i++) {
-      images.push({
-        number: i,
-        dataUrl: generateImage(i, i - 1)
-      });
-    }
-    return images;
-  };
+//   const generateAllImages = (): ImageData[] => {
+//     const images: ImageData[] = [];
+//     const totalImages = numRows * numColumns;
+//     for (let i = 1; i <= totalImages; i++) {
+//       images.push({
+//         number: i,
+//         dataUrl: generateImage(i, i - 1)
+//       });
+//     }
+//     return images;
+//   };
 
   const downloadAllImages = async () => {
     // Create a zip file
