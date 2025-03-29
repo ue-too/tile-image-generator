@@ -37,6 +37,11 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Check lockfile
+        run: |
+          ls -la pnpm-lock.yaml
+          cat pnpm-lock.yaml
             
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
